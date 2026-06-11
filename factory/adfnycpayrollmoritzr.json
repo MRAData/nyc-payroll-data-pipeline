@@ -1,0 +1,15 @@
+{
+	"name": "adfnycpayrollmoritzr",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0460451-8866-4da9-9ddd-d3b2ca13c709",
+		"tenantId": "f958e84a-92b8-439f-a62d-4f45996b6d07"
+	}
+}

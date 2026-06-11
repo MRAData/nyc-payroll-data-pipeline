@@ -1,0 +1,27 @@
+{
+	"name": "sql_AgencyMaster",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sqldb",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "AgencyID",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "AgencyName",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "AgencyMaster"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

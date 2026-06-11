@@ -1,0 +1,50 @@
+{
+	"name": "dataflow_agency",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_AgencyMaster",
+						"type": "DatasetReference"
+					},
+					"name": "agencySource"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "sql_AgencyMaster",
+						"type": "DatasetReference"
+					},
+					"name": "agencySink"
+				}
+			],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          AgencyID as string,",
+				"          AgencyName as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> agencySource",
+				"agencySource sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          AgencyID as integer,",
+				"          AgencyName as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> agencySink"
+			]
+		}
+	}
+}
